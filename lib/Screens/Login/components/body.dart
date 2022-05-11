@@ -1,10 +1,6 @@
 import 'dart:convert';
-import 'dart:ffi';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart';
 import 'package:login_system/Screens/Home/home-screen.dart';
@@ -33,24 +29,24 @@ class Body extends StatelessWidget {
           });
           if (response.statusCode == 200) {
             var data = jsonDecode(response.body.toString());
-            print('token: ' + data['token']);
 
             // cookies wala
             SharedPreferences pref = await SharedPreferences.getInstance();
             await pref.setString('token', data['token']);
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return HomeScreen();
+              return const HomeScreen();
             }));
           } else {
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text('invalid')));
+                .showSnackBar(const SnackBar(content: Text('invalid')));
           }
         } else {
           ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Blank Field')));
+              .showSnackBar(const SnackBar(content: Text('Blank Field')));
         }
       } catch (e) {
-        print(e.toString());
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Something Went Wrong')));
       }
     }
 
@@ -141,7 +137,7 @@ class Body extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: kPrimaryColor,
                     borderRadius: BorderRadius.circular(29)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "LOGIN",
                     style: TextStyle(color: Colors.white),
@@ -151,17 +147,17 @@ class Body extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 "Don’t have an Account ? ",
                 style: TextStyle(color: kPrimaryColor),
               ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return SignupScreen();
+                    return const SignupScreen();
                   }));
                 },
-                child: Text(
+                child: const Text(
                   "Sign Up",
                   style: TextStyle(
                     color: kPrimaryColor,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_system/Screens/Home/components/background.dart';
 import 'package:login_system/Screens/Login/Login_screen.dart';
-import 'package:login_system/Screens/Welcome/welcome_screen.dart';
 import 'package:login_system/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,7 +19,9 @@ class Body extends StatelessWidget {
               child: ClipRRect(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
+                  // ignore: avoid_unnecessary_containers
                   child: Container(
+                    // ignore: deprecated_member_use
                     child: FlatButton(
                       padding: const EdgeInsets.symmetric(
                           vertical: 20, horizontal: 40),
@@ -31,10 +32,10 @@ class Body extends StatelessWidget {
                         await pref.clear();
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return LoginScreen();
+                          return const LoginScreen();
                         }));
                       },
-                      child: Text(
+                      child: const Text(
                         "LOGIN",
                         style: TextStyle(color: Colors.white),
                       ),

@@ -1,13 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:login_system/Screens/Home/home-screen.dart';
 import 'package:login_system/Screens/Login/Login_screen.dart';
 import 'package:login_system/Screens/Welcome/components/body.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// class welcomeScreen extends StatelessWidget {
-//   const welcomeScreen({Key? key}) : super(key: key);
+// class WelcomeScreen extends StatelessWidget {
+//   const WelcomeScreen({Key? key}) : super(key: key);
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -17,14 +15,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 //   }
 // }
 
-class welcomeScreen extends StatefulWidget {
-  const welcomeScreen({Key? key}) : super(key: key);
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<welcomeScreen> createState() => _welcomeScreenState();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _welcomeScreenState extends State<welcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();
@@ -36,18 +34,18 @@ class _welcomeScreenState extends State<welcomeScreen> {
     String? val = pref.getString('token');
     if (val != null) {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
           (route) => false);
     } else {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return LoginScreen();
+        return const LoginScreen();
       }));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Body(),
     );
   }

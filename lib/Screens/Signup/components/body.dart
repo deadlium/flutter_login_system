@@ -1,10 +1,6 @@
 import 'dart:convert';
-import 'dart:ffi';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart';
 import 'package:login_system/Screens/Login/Login_screen.dart';
@@ -29,14 +25,17 @@ class Body extends StatelessWidget {
           "password": password,
         });
         if (response.statusCode == 200) {
+          // ignore: unused_local_variable
           var data = jsonDecode(response.body.toString());
-          print(data['token']);
-          print('Account Login Successfully');
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('Account Login')));
         } else {
-          print('Failed');
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('Field')));
         }
       } catch (e) {
-        print(e.toString());
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Field')));
       }
     }
 
@@ -115,7 +114,7 @@ class Body extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: kPrimaryColor,
                     borderRadius: BorderRadius.circular(29)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "SIGNUP",
                     style: TextStyle(color: Colors.white),
@@ -125,17 +124,17 @@ class Body extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 "Already have an Account ? ",
                 style: TextStyle(color: kPrimaryColor),
               ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return LoginScreen();
+                    return const LoginScreen();
                   }));
                 },
-                child: Text(
+                child: const Text(
                   "Login",
                   style: TextStyle(
                     color: kPrimaryColor,

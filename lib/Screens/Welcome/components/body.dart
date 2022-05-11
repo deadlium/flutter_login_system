@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login_system/Screens/Login/login_screen.dart';
@@ -12,6 +9,7 @@ class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
 
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
@@ -36,7 +34,9 @@ class Body extends StatelessWidget {
               child: ClipRRect(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
+                  // ignore: avoid_unnecessary_containers
                   child: Container(
+                    // ignore: deprecated_member_use
                     child: FlatButton(
                       padding: const EdgeInsets.symmetric(
                           vertical: 20, horizontal: 40),
@@ -44,10 +44,10 @@ class Body extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return LoginScreen();
+                          return const LoginScreen();
                         }));
                       },
-                      child: Text(
+                      child: const Text(
                         "LOGIN",
                         style: TextStyle(color: Colors.white),
                       ),
@@ -62,7 +62,9 @@ class Body extends StatelessWidget {
               child: ClipRRect(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
+                  // ignore: avoid_unnecessary_containers
                   child: Container(
+                    // ignore: deprecated_member_use
                     child: FlatButton(
                       padding: const EdgeInsets.symmetric(
                           vertical: 20, horizontal: 40),
@@ -70,10 +72,10 @@ class Body extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return SignupScreen();
+                          return const SignupScreen();
                         }));
                       },
-                      child: Text(
+                      child: const Text(
                         "SIGNUP",
                         style: TextStyle(color: Colors.black),
                       ),

@@ -1,14 +1,8 @@
-import 'dart:async';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:login_system/Screens/Home/home-screen.dart';
-import 'package:login_system/Screens/Login/Login_screen.dart';
 import 'package:login_system/Screens/Welcome/welcome_screen.dart';
 import 'package:login_system/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// var finalN;
 void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
@@ -34,20 +28,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  // Future getValidationData() async {
-  //   final SharedPreferences sharedPreferences =
-  //       await SharedPreferences.getInstance();
-  //   var obtainedToken = sharedPreferences.getString('token');
-  //   setState(() {
-  //     finalN = obtainedToken;
-  //   });
-  //   if (obtainedToken == null) {
-  //     print('Null');
-  //   } else {
-  //     print(obtainedToken);
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -55,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       title: "learnflu",
       theme: ThemeData(
           primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
-      home: const welcomeScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }
